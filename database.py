@@ -3,6 +3,9 @@
 Created on Sat Dec  3 20:21:07 2022
 
 @author: Yannik
+
+zugrundelegiegende struktur von https://github.com/lb803/list-manager-skill/blob/master/database.py mit 
+anpassungen für meine Datanspeicherstruktur
 """
 
 import json
@@ -32,5 +35,21 @@ class Database:
     def write_data(self):
         with open(self.JSON_PATH, 'w') as json_file:
             json.dump(self.json_data, json_file)
+            
+            
+    # checks
+    def Todo_item_exists(self, todo, item):
+        return item in self.jason_data[todo]
+    
+    def no_Todos(self):
+        return True if len(list(self.jason_data.keys())) == 0 else False
+    
+    def Todo_empty(self, todo):
+        return not bool(self.jason_data[todo])
+    
+    def Todo_exists(self, todo):
+        return True if todo in self.jason_data.keys() else False
+    
+    #
             
     
