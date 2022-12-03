@@ -19,7 +19,7 @@ class Database:
     
     
     def __init__(self):
-        self.JSON_PATH =join(dirname(__file__), 'data.jasn')
+        self.JSON_PATH =join(dirname(__file__), 'data.json')
         try:
             self.jason_data = self.read_data()
         except FileNotFoundError:
@@ -61,5 +61,22 @@ class Database:
         return list(self.jason_data.keys())
     
     # adds
+    def add_todo(self, todo):
+        self.jason_data[todo] = {}
+        self.write_data()
+        
+    def add_todo_charas(self, todo, char):
+        self.jason_data[todo][char] = None
+        self.write_data()
+        
+    def add_list_char(self, todo, point, char):
+        if Todo_item_exists(todo, char) and self.jason_data[todo][char] != None:
+            self.jason_data[todo][char].append(point)
+            self.write_data()
+        else:
+            self.jason_data[todo][char] = []
+            self.jason_data[todo][char].append(point)
+            self.write_data()
+    
 
     
