@@ -50,6 +50,16 @@ class Database:
     def Todo_exists(self, todo):
         return True if todo in self.jason_data.keys() else False
     
-    #
-            
+    # reads
+    def read_item(self, todo, item):
+        return self.jason_data[todo][item]
+    
+    def read_todo(self, todo):
+        return self.jason_data[todo]
+    
+    def read_todos(self):
+        return list(self.jason_data.keys())
+    
+    # adds
+
     
