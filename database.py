@@ -24,5 +24,13 @@ class Database:
             self.write_data()
     
     
-    
+    #file loading and saving
+    def read_data(self):
+        with open(self.JSON_PATH, 'r') as json_file:
+            return json.load(json_file)
+        
+    def write_data(self):
+        with open(self.JSON_PATH, 'w') as json_file:
+            json.dump(self.json_data, json_file)
+            
     
