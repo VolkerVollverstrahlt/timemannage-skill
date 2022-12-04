@@ -34,7 +34,7 @@ class Database:
         
     def write_data(self):
         with open(self.JSON_PATH, 'w') as json_file:
-            json.dump(self.json_data, json_file)
+            json.dump(self.jason_data, json_file)
             
             
     # checks
@@ -69,14 +69,15 @@ class Database:
         self.jason_data[todo][char] = None
         self.write_data()
         
-    def add_list_char(self, todo, point, char):
-        if Todo_item_exists(todo, char) and self.jason_data[todo][char] != None:
+    def add_list_char(self, todo, char,point):
+        if Database.Todo_item_exists(self,todo, char) and self.jason_data[todo][char] != None:
             self.jason_data[todo][char].append(point)
             self.write_data()
         else:
             self.jason_data[todo][char] = []
             self.jason_data[todo][char].append(point)
             self.write_data()
+    
     
 
     
