@@ -82,6 +82,10 @@ class Database:
     def del_Todo(self, Todo):
         del self.jason_data[Todo]
         self.write_data()
+        
+    def del_char(self, Todo, char):
+        del self.jason_data[Todo][char]
+        self.write_data()
     
     
 
