@@ -65,8 +65,8 @@ class Database:
         self.jason_data[todo] = {}
         self.write_data()
         
-    def add_todo_charas(self, todo, char):
-        self.jason_data[todo][char] = None
+    def add_todo_charas(self, todo, char, wert):
+        self.jason_data[todo][char] = wert
         self.write_data()
         
     def add_list_char(self, todo, char,point):
@@ -77,6 +77,11 @@ class Database:
             self.jason_data[todo][char] = []
             self.jason_data[todo][char].append(point)
             self.write_data()
+            
+    # del
+    def del_Todo(self, Todo):
+        del self.jason_data[Todo]
+        self.write_data()
     
     
 
