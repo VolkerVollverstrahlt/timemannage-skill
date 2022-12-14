@@ -17,6 +17,10 @@ class Timemannage(MycroftSkill):
                     .require('todos')
                     .optinally('todo_name'))
     def handle_timemannage(self, message):
+        data = {'todo_name' : message.data.get('todo_name')}
+        
+        if data['todo_name']:
+            pass
         self.speak_dialog('timemannage')
 
 
