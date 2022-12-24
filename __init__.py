@@ -23,7 +23,13 @@ class Timemannage(MycroftSkill):
         if data['todo_name']:
             if not self.db.Todo_exists(data("todo_name")):
                 self.speak_dialog('todo.not.found',data)
-
+                
+            elif self.db.Todo_empty( "todo_name"):
+                self.speak_dialog('todo.no.attributes',data)
+                
+            else:
+                pass
+            
 
 def create_skill():
     return Timemannage()
