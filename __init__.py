@@ -15,13 +15,14 @@ class Timemannage(MycroftSkill):
     @intent_handler(IntentBuilder("read")
                     .require('what')
                     .require('todos')
-                    .optinally('todo_name'))
+                    .optinally('todo_name')
+                    .optinally('todo_attribute'))
     def handle_timemannage(self, message):
-        data = {'todo_name' : message.data.get('todo_name')}
+        data = {'todo_name' : message.data.get('todo_name'), 'todo_attribute' : message.data.get('todo_attribute')}
         
         if data['todo_name']:
-            pass
-        self.speak_dialog('timemannage')
+            if not self.db.Todo_exists(data("todo_name")):
+                self.speak_dialog('todo.not.found',data)
 
 
 def create_skill():
