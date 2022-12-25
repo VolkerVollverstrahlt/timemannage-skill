@@ -29,8 +29,10 @@ class Timemannage(MycroftSkill):
                 
             else:
                 if data['todo_attribute']:
-                    
-                    pass
+                    if data['todo_attribute'] == "subpoints":
+                        pass
+                    else:
+                        pass
             
 
 def create_skill():
