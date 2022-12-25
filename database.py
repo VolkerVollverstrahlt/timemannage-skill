@@ -38,8 +38,8 @@ class Database:
             
             
     # checks
-    def Todo_item_exists(self, todo, item):
-        return item in self.jason_data[todo]
+    def Todo_attribute_exists(self, todo, attribute):
+        return attribute in self.jason_data[todo]
     
     def no_Todos(self):
         return True if len(list(self.jason_data.keys())) == 0 else False
@@ -51,8 +51,10 @@ class Database:
         return True if todo in self.jason_data.keys() else False
     
     # reads
-    def read_item(self, todo, item):
-        return self.jason_data[todo][item]
+    def read_attribute(self, todo, attribute):
+        return self.jason_data[todo][attribute]
+    
+    def read_attribute(self, todo)
     
     def read_todo(self, todo):
         return self.jason_data[todo]
@@ -65,17 +67,17 @@ class Database:
         self.jason_data[todo] = {}
         self.write_data()
         
-    def add_todo_charas(self, todo, char, wert):
-        self.jason_data[todo][char] = wert
+    def add_todo_charas(self, todo, attribute, wert):
+        self.jason_data[todo][attribute] = wert
         self.write_data()
         
-    def add_list_char(self, todo, char,point):
-        if Database.Todo_item_exists(self,todo, char) and self.jason_data[todo][char] != None:
-            self.jason_data[todo][char].append(point)
+    def add_list_char(self, todo, attribute,point):
+        if Database.Todo_item_exists(self,todo, attribute) and self.jason_data[todo][attribute] != None:
+            self.jason_data[todo][attribute].append(point)
             self.write_data()
         else:
-            self.jason_data[todo][char] = []
-            self.jason_data[todo][char].append(point)
+            self.jason_data[todo][attribute] = []
+            self.jason_data[todo][attribute].append(point)
             self.write_data()
             
     # del
@@ -83,8 +85,8 @@ class Database:
         del self.jason_data[Todo]
         self.write_data()
         
-    def del_char(self, Todo, char):
-        del self.jason_data[Todo][char]
+    def del_char(self, Todo, attribute):
+        del self.jason_data[Todo][attribute]
         self.write_data()
     
     

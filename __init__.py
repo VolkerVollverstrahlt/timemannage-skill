@@ -28,7 +28,9 @@ class Timemannage(MycroftSkill):
                 self.speak_dialog('todo.no.attributes',data)
                 
             else:
-                pass
+                if data['todo_attribute']:
+                    
+                    pass
             
 
 def create_skill():
