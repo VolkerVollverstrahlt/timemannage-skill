@@ -54,8 +54,6 @@ class Database:
     def read_attribute(self, todo, attribute):
         return self.jason_data[todo][attribute]
     
-    def read_attribute(self, todo)
-    
     def read_todo(self, todo):
         return self.jason_data[todo]
     
